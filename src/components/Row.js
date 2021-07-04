@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import axios from './axios'
-import './asset/css/Row.css'
+import axios from '../axios'
+import '../asset/css/Row.css'
 
 function Row({ title, fetchUrl, isLargeRow }) {
-  const baseImageUrl = 'https://www.themoviedb.org/t/p/original/'
+  const baseImageUrl = 'https://www.themoviedb.org/t/p/original'
   const [movies, setMovies] = useState([])
   
   useEffect(() => {
@@ -27,6 +27,16 @@ function Row({ title, fetchUrl, isLargeRow }) {
             alt={movie.name}
           />
         ))}
+        {/* <ControlledCarousel>
+          {movies.map(movie => (
+            <img
+              key={movie.id}
+              className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+              src={`${baseImageUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+              alt={movie.name}
+            />
+          ))}
+        </ControlledCarousel> */}
       </div>
     </div>
   )
